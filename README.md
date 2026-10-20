@@ -40,7 +40,9 @@ The policy makes concrete claims about the app (checked against the code on
 2026-10-20). If any of these change, both policies change with them:
 
 - Cars, fill-ups, expenses and notes are stored only on the device (AsyncStorage). No
-  account, no server. iOS backs them up with the app's data; Android has
+  account, no server. Removing the app deletes them, and no backup keeps them: on iOS
+  AsyncStorage excludes its directory from iCloud backup by default (no
+  `RCTAsyncStorageExcludeFromBackup` override in Info.plist); Android has
   `allowBackup="false"`.
 - Firebase Analytics events and parameters are exactly those in
   `src/services/analytics.ts`: no amounts, odometer readings, litres, car names or
