@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Litre — Gizlilik Politikası</title>
+<meta name="description" content="Litre neyi telefonunda tutuyor, neyi gönderiyor ve bunları nasıl kapatırsın.">
+<link rel="icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="en" href="https://nodabasi.github.io/litre-app/en/privacy/">
+<link rel="alternate" hreflang="tr" href="https://nodabasi.github.io/litre-app/privacy/">
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="../assets/logo.png" alt="Litre">
+  <h1>Gizlilik Politikası</h1>
+  <p class="tagline">Ne telefonunda kalıyor, ne gönderiliyor</p>
+</header>
+
+<p class="meta">20 Ekim 2026'dan itibaren geçerli · iOS ve Android için Litre
+(İngilizce mağaza adı Fillup) mobil uygulaması</p>
+
+<h2>Kısa özet</h2>
+<p>Litre'de hesap yok ve bir sunucumuz yok. Araçların, dolumların, masrafların ve
+notların yalnızca telefonunda saklanıyor; bunların hiçbiri bize ya da başka birine
+gönderilmiyor.</p>
+<p>Telefondan çıkan veri üç yere gidiyor, üçü de Google'ın servisi: uygulamanın nasıl
+kullanıldığını gösteren anonim istatistikler (Firebase Analytics), çökme raporları
+(Firebase Crashlytics) ve reklamlar (Google AdMob). İlk ikisini Ayarlar'dan
+kapatabilirsin. Aşağıda her birinin tam olarak ne gönderdiğini yazdık.</p>
+
+<h2>Telefonunda kalanlar</h2>
+<ul class="plain">
+  <li><b>Araçların</b> — verdiğin isim ve yakıt tipi.</li>
+  <li><b>Dolumların</b> — tarih, kilometre, litre, ödenen tutar, full depo olup olmadığı
+  ve not.</li>
+  <li><b>Masrafların</b> — tarih, kategori, tutar ve not.</li>
+  <li><b>Ayarların</b> — dil, para birimi, tema ve kullanım istatistiği tercihin.</li>
+</ul>
+<p>Bunlar uygulamanın telefondaki depolama alanında duruyor. Hesap, giriş ya da bulut
+eşitleme olmadığı için bunlara bizim erişmemiz mümkün değil.</p>
+<p><b>Yedekleme:</b> iOS'ta kayıtların, uygulama verisini kapsayan iCloud veya
+bilgisayar yedeğine dahil oluyor. Android'de uygulamanın yedeklemesi kapalı; telefonu
+değiştirdiğinde ya da uygulamayı sildiğinde kayıtlar taşınmıyor.</p>
+
+<h2>Fiş tarama, kamera ve fotoğraflar</h2>
+<p>Dolum ekranındaki <b>Fişi tara</b> düğmesi, fişin fotoğrafını çekmene ya da
+galeriden seçmene izin veriyor; Litre o fotoğraftaki litre ve tutarı okuyup forma
+yazıyor. Kamera izni gerekiyorsa yalnızca sen bu düğmeye bastığında isteniyor; galeriden
+seçerken yalnızca seçtiğin fotoğraf uygulamaya veriliyor.</p>
+<ul class="plain">
+  <li>Yazı tanıma, telefonun içinde Google ML Kit ile yapılıyor. Fotoğraf ve üzerindeki
+  yazı hiçbir sunucuya yüklenmiyor.</li>
+  <li>Litre fotoğrafı kayıtlarına eklemiyor; okuma bittikten sonra yalnızca forma
+  yazılan sayılar kalıyor. Okuma için oluşan geçici kopya uygulamanın önbelleğinde duruyor
+  ve sistem tarafından temizleniyor. Kamerayla çektiğin fotoğraf galerine eklenmiyor.</li>
+  <li>Google'ın açıklamasına göre ML Kit, kendi performansını ölçmek için cihaz modeli,
+  işletim sistemi, uygulama bilgisi ve hata kodları gibi teknik ölçümleri Google'a
+  gönderebiliyor. Bu ölçümler fotoğrafı ya da fişin içeriğini kapsamıyor.</li>
+</ul>
+<p>Fiş taramayı hiç kullanmazsan kamera ya da fotoğraf izni hiç istenmiyor.</p>
+
+<h2 id="istatistik">Kullanım istatistikleri ve çökme raporları</h2>
+<p>Uygulamayı geliştirebilmek için <b>Firebase Analytics</b> ile hangi ekranların
+açıldığını ve hangi işlemlerin yapıldığını ölçüyoruz. Gönderilenler:</p>
+<ul class="plain">
+  <li>Açılan ekranların adları.</li>
+  <li>Araç eklendiğinde yakıt tipi; dolum eklendiğinde full depo olup olmadığı ve toplam
+  dolum sayısı; masraf eklendiğinde kategorisi; bir kaydın silindiği; puanlama sorusuna
+  verilen cevap.</li>
+  <li>Uygulama dili ve seçilen para birimi.</li>
+  <li>Firebase'in kendiliğinden eklediği bilgiler: uygulamanın bu kurulumuna ait rastgele
+  bir kimlik, cihaz modeli, işletim sistemi ve uygulama sürümü, IP adresinden çıkarılan
+  ülke ve şehir düzeyinde konum.</li>
+</ul>
+<p><b>Gönderilmeyenler:</b> tutarlar, kilometreler, litreler, araç adları ve notlar.
+Reklam kimliğin Analytics'e verilmiyor ve seni tanımlayan bir kullanıcı kimliği
+atanmıyor.</p>
+<p>Uygulama çökerse <b>Firebase Crashlytics</b> bir rapor gönderiyor: çökmenin yaşandığı
+kod satırları, cihaz modeli, işletim sistemi sürümü ve kurulum başına rastgele bir
+kimlik. Bu raporlar hataları bulup düzeltmek için kullanılıyor.</p>
+<div class="contact">
+  <p><b>Kapatmak için:</b> Ayarlar › Gizlilik › <b>Kullanım istatistiklerini
+  paylaş</b>. Kapattığında Analytics ve Crashlytics veri göndermeyi bırakıyor. Uygulama
+  aynı şekilde çalışmaya devam ediyor; bu ayar reklamları etkilemiyor.</p>
+</div>
+
+<h2 id="reklamlar">Reklamlar</h2>
+<p>Litre ücretsiz ve masrafını reklamla karşılıyor. Ana ekranda ve geçmiş ekranında
+banner reklam görüyorsun; kayıt formlarında reklam yok. Reklamları <b>Google
+AdMob</b> sunuyor.</p>
+<p>Reklam gösterebilmek için AdMob cihazından bazı verilere erişiyor. Bunlar bize
+uğramıyor, doğrudan Google'a gidiyor:</p>
+<ul class="plain">
+  <li><b>Reklam kimliğin</b> — Android'de Reklam Kimliği; iOS'ta IDFA, yalnızca izleme
+  izni verirsen. İsminle ilgisi olmayan, telefonunun ayarlarından sıfırlayabildiğin bir
+  numara.</li>
+  <li><b>IP adresin</b> ve ondan çıkarılan yaklaşık konum — reklamın hangi ülkeye ve dile
+  göre seçileceği için.</li>
+  <li><b>Cihaz bilgisi</b> — model, işletim sistemi sürümü, ekran boyutu, dil.</li>
+  <li><b>Reklam etkileşimi</b> — hangi reklamın gösterildiği ve tıklanıp tıklanmadığı;
+  aynı reklamı tekrar tekrar göstermemek ve sahte tıklamayı ayıklamak için.</li>
+</ul>
+<p>Yakıt ve masraf kayıtların AdMob'a hiçbir şekilde verilmiyor. Google'ın bu veriyi
+nasıl işlediğini <a href="https://business.safety.google/adsprocessing/">reklam veri
+politikasında</a> okuyabilirsin.</p>
+<p>Reklamlar genel izleyiciye uygun içerikle sınırlı; kumar, alkol ve flört gibi hassas
+kategoriler kapalı.</p>
+
+<h2>Reklamlar için iznin</h2>
+<p>Avrupa Ekonomik Alanı ve İngiltere gibi izin gerektiren bölgelerde uygulama
+açıldığında Google'ın izin ekranı çıkıyor ve kişiselleştirilmiş reklam isteyip
+istemediğini soruyor. iOS'ta ayrıca Apple'ın "uygulamanın seni izlemesine izin ver"
+sorusu gelebiliyor.</p>
+<p>Hayır dersen uygulama tamamen aynı çalışır; reklamlar kişiselleştirilmez ya da hiç
+gösterilmez. Kararını sonradan değiştirmek istersen: iOS'ta <b>Ayarlar › Gizlilik ve
+Güvenlik › İzleme</b>, Android'de <b>Ayarlar › Google › Reklamlar</b> (cihaza göre
+<b>Ayarlar › Gizlilik › Reklamlar</b>). Reklam kimliğini aynı yerden sıfırlayabilir
+ya da silebilirsin.</p>
+
+<h2>Uygulama içi puanlama</h2>
+<p>Birkaç dolum kaydettikten sonra Litre, mağazada puan vermek isteyip istemediğini
+sorabiliyor. Evet dersen Apple'ın ya da Google'ın kendi puanlama penceresi açılıyor;
+verdiğin puan ve yorum bize değil mağazaya gidiyor.</p>
+
+<h2>Verilerini silmek</h2>
+<ul class="plain">
+  <li>Bir kaydı, kaydın içindeki <b>Sil</b> ile silebilirsin.</li>
+  <li>Bir aracı sildiğinde ona ait bütün kayıtlar da siliniyor.</li>
+  <li>Uygulamayı telefondan sildiğinde bütün kayıtların gidiyor.</li>
+</ul>
+<div class="notice">
+  <p>Kayıtlar yalnızca telefonunda durduğu için sildiğin bir şeyi bizim geri getirmemiz
+  mümkün değil. iOS'ta tek geri dönüş yolu telefonunun kendi yedeği.</p>
+</div>
+<p>Analytics ve Crashlytics verisi bir hesaba ya da isme bağlı değil. Google, Analytics
+verisini Firebase projesinin saklama ayarına göre, Crashlytics raporlarını 90 güne kadar
+tutuyor; ardından siliniyor.</p>
+
+<h2>Paylaşım</h2>
+<p>Hiçbir veriyi satmıyoruz. Yukarıda sayılan Google servisleri dışında hiçbir üçüncü
+tarafa veri gitmiyor. Firebase verileri Google Cloud sunucularında,
+<a href="https://firebase.google.com/support/privacy">Firebase'in gizlilik
+şartları</a> altında işleniyor.</p>
+
+<h2>Uygulama mağazaları</h2>
+<p>Litre, Apple App Store ve Google Play üzerinden dağıtılıyor. Apple ve Google, o
+mağazaları işletmenin bir parçası olarak kendi indirme ve kullanım istatistiklerini kendi
+gizlilik politikaları kapsamında topluyor. Bize yalnızca anonim toplu raporlar
+ulaşıyor.</p>
+
+<h2>Çocuklar</h2>
+<p>Litre araç sahipleri için tasarlandı ve çocuklara yönelik değil. Bilerek çocuklardan
+kişisel veri toplamıyoruz.</p>
+
+<h2>Haklarınız</h2>
+<p>KVKK ve GDPR gibi veri koruma mevzuatı; kişisel verilerine erişme, düzeltme, silme ve
+işlenmesine itiraz etme hakkı veriyor. Kayıtların zaten senin telefonunda ve hepsini
+uygulamanın içinden düzenleyip silebilirsin. İstatistik ve çökme raporlarını Ayarlar'dan
+durdurabilirsin. Başka bir sorun ya da talep için bize yaz, 30 gün içinde dönelim.</p>
+
+<h2>Bu politikadaki değişiklikler</h2>
+<p>İleride bir sürüm uygulamanın sakladığı ya da gönderdiği şeyi değiştirirse, bu sayfa
+o sürüm yayınlanmadan önce güncellenir ve yukarıdaki geçerlilik tarihi de onunla birlikte
+değişir.</p>
+
+<h2>İletişim</h2>
+<div class="contact">
+  <p>Bu politikayla ilgili sorular:
+  <a href="mailto:odabasi.developer@gmail.com">odabasi.developer@gmail.com</a></p>
+  <p>Odabasi Development</p>
+</div>
+
+<hr>
+<footer>
+  <a href="../">Litre</a>
+  <a href="../support/">Destek</a>
+  <a href="../en/privacy/" hreflang="en">English</a>
+  <div class="copyright">© 2026 Odabasi Development</div>
+</footer>
+
+</div>
+</body>
+</html>

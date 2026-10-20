@@ -1,0 +1,283 @@
+/* Shared stylesheet for every page. Palette mirrors the app: the amber of the
+   icon on a cool near-white ground, with the icon's navy as the second colour
+   and the app's red for destructive actions.
+
+   Mobile first: the base rules target a phone, and the only media queries widen
+   things for larger screens or adapt to a dark colour scheme. */
+
+:root {
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --ink-faint: #64748b;
+  --ground: #f8fafc;
+  --card: #ffffff;
+  --line: #e2e8f0;
+
+  /* Amber is too light for text on white, so text uses the app's warning tone. */
+  --brand: #b45309;
+  --brand-fill: #f59e0b;
+  --accent: #1e3a8a;
+  --green: #15803d;
+  --red: #b91c1c;
+
+  /* Same hues at low alpha, for card and badge fills. */
+  --brand-tint: #f59e0b24;
+  --accent-tint: #1e3a8a14;
+  --green-tint: #15803d1a;
+  --red-tint: #b91c1c14;
+
+  --shadow: 0 6px 24px rgb(15 23 42 / 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e2e8f0;
+    --ink-soft: #cbd5e1;
+    --ink-faint: #94a3b8;
+    --ground: #0b1220;
+    --card: #152033;
+    --line: #2c3a52;
+
+    --brand: #fbbf24;
+    --brand-fill: #fbbf24;
+    --accent: #93c5fd;
+    --green: #4ade80;
+    --red: #f87171;
+
+    --brand-tint: #fbbf2424;
+    --accent-tint: #93c5fd1f;
+    --green-tint: #4ade8024;
+    --red-tint: #f8717124;
+
+    --shadow: 0 6px 24px rgb(0 0 0 / 0.35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 18px 64px;
+  background: var(--ground);
+  color: var(--ink);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
+}
+
+img { max-width: 100%; }
+
+.wrap { max-width: 680px; margin: 0 auto; }
+
+/* Header — a tinted band in the brand amber, cooled with the navy accent */
+
+header {
+  position: relative;
+  margin: 18px 0 8px;
+  padding: 40px 20px 32px;
+  text-align: center;
+  border-radius: 24px;
+  background:
+    radial-gradient(60% 80% at 20% 0%, var(--brand-tint), transparent 70%),
+    radial-gradient(60% 80% at 80% 0%, var(--accent-tint), transparent 70%),
+    radial-gradient(70% 90% at 50% 110%, var(--brand-tint), transparent 70%);
+}
+
+header img {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin: 18px 0 6px;
+  font-size: clamp(28px, 8vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  background: linear-gradient(100deg, var(--brand), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(16px, 4.4vw, 19px);
+}
+
+/* Section headings — a coloured bar alternating amber and navy */
+
+h2 {
+  position: relative;
+  margin: 40px 0 12px;
+  padding-left: 14px;
+  font-size: clamp(20px, 5.4vw, 23px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.16em;
+  bottom: 0.16em;
+  width: 5px;
+  border-radius: 3px;
+  background: var(--brand-fill);
+}
+
+h2:nth-of-type(even)::before { background: var(--accent); }
+
+h3 {
+  margin: 26px 0 4px;
+  font-size: 17px;
+  color: var(--brand);
+}
+
+p { margin: 12px 0; }
+
+a { color: var(--accent); }
+
+hr {
+  margin: 44px 0 0;
+  border: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--brand-fill), var(--accent));
+  opacity: 0.75;
+}
+
+/* Numbered walkthrough on the landing page */
+
+.steps {
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+  counter-reset: step;
+}
+
+.steps li {
+  position: relative;
+  counter-increment: step;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--brand-fill);
+  border-radius: 14px;
+  padding: 14px 16px 14px 56px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand);
+  background: var(--brand-tint);
+}
+
+.steps li:nth-child(even) { border-left-color: var(--accent); }
+.steps li:nth-child(even)::before { color: var(--accent); background: var(--accent-tint); }
+
+.steps b { display: block; font-size: 17px; }
+.steps li:nth-child(odd) b { color: var(--brand); }
+.steps li:nth-child(even) b { color: var(--accent); }
+
+.steps span { color: var(--ink-soft); font-size: 15px; }
+
+/* Plain bullet lists — coloured markers, alternating */
+
+ul.plain { padding-left: 22px; }
+
+ul.plain li { margin: 7px 0; }
+
+ul.plain li::marker { color: var(--brand); font-size: 1.1em; }
+ul.plain li:nth-child(even)::marker { color: var(--accent); }
+
+/* Contact box */
+
+.contact {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--brand-fill);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.contact p:first-child { margin-top: 0; }
+.contact p:last-child { margin-bottom: 0; }
+.contact a { font-weight: 600; }
+
+/* Callout for the destructive actions people come to this site looking for */
+
+.notice {
+  background: var(--red-tint);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+
+.notice p:first-child { margin-top: 0; }
+.notice p:last-child { margin-bottom: 0; }
+
+/* Effective-date line under a policy heading */
+
+.meta {
+  display: inline-block;
+  margin: 6px 0 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--brand-tint);
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 22px;
+  padding-top: 18px;
+  color: var(--ink-faint);
+  font-size: 15px;
+  line-height: 2.2;
+  text-align: center;
+}
+
+footer a {
+  margin: 0 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--brand-tint);
+  color: var(--brand);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+footer a:hover { text-decoration: underline; }
+
+footer .copyright { margin-top: 16px; line-height: 1.6; }
+
+/* Wider screens */
+
+@media (min-width: 560px) {
+  body { padding: 0 24px 72px; }
+  header { padding: 52px 24px 40px; }
+  header img { width: 96px; height: 96px; }
+  .steps li { padding-right: 20px; }
+}
